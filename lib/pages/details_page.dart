@@ -1,3 +1,4 @@
+import 'package:cake_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -10,6 +11,11 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: white,
+      appBar: AppBar(
+        title: Text('Detail Page'),
+      ),
+    );
   }
 }
