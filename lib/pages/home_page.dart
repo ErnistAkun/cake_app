@@ -2,6 +2,7 @@ import 'package:cake_app/constants/colors.dart';
 import 'package:cake_app/constants/text_style.dart';
 import 'package:cake_app/data/category.dart';
 import 'package:cake_app/data/items.dart';
+import 'package:cake_app/pages/details_page.dart';
 import 'package:cake_app/widget/Item_card_02.dart';
 import 'package:cake_app/widget/category_btn.dart';
 import 'package:cake_app/widget/circurl_btn.dart';
@@ -65,13 +66,20 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 2,
                 child: ListView.builder(
-                    padding: EdgeInsets.only(top: 50.0),
+                    padding: const EdgeInsets.only(top: 50.0),
                     itemCount: cakes.length,
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (itemBuilder, index) {
                       return GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (builder) => DetailPage(),
+                            ),
+                          );
+                        },
                         child: ItemCard(
                           cake: cakes[index],
                         ),
@@ -79,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                     }),
               ),
               const Text(
-                'Recomended',
+                'Рекомендуемые',
                 style: TextStyle(
                   fontSize: 21.0,
                   color: black,
