@@ -76,7 +76,8 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (builder) => DetailPage(),
+                              builder: (builder) =>
+                                  DetailPage(cake: cakes[index]),
                             ),
                           );
                         },
