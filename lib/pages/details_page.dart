@@ -1,7 +1,9 @@
 import 'package:cake_app/constants/colors.dart';
 import 'package:cake_app/constants/text_style.dart';
 import 'package:cake_app/data/items.dart';
+import 'package:cake_app/widget/custom_app_bar.dart';
 import 'package:cake_app/widget/rating_bar.dart';
+import 'package:cake_app/widget/round_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
@@ -87,13 +89,44 @@ class _DetailPageState extends State<DetailPage> {
                     width: 360.0,
                     height: 200,
                     child: ListView(
-                      padding: EdgeInsets.only(bottom: 50.0),
-                      physics: BouncingScrollPhysics(),
+                      padding: const EdgeInsets.only(bottom: 50.0),
+                      physics: const BouncingScrollPhysics(),
                       children: [
                         ReadMoreText(
                           widget.cake.destription,
                           trimLines: 7,
                           trimMode: TrimMode.Line,
+                          colorClickableText: mainColor,
+                          style: TextStyle(
+                            color: black.withOpacity(0.5),
+                            height: 1.5,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 360.0,
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    decoration: const BoxDecoration(
+                      color: pink01,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Добавить в корзину',
+                          style: txtBtnCategory.copyWith(color: mainColor),
+                        ),
+                        roundButton(
+                          text: '\$${widget.cake.price}',
+                          fontsize: 14,
                         ),
                       ],
                     ),
@@ -101,6 +134,7 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
             ),
+            CustomAppBar(),
           ],
         ),
       ),
